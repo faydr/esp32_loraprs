@@ -28,18 +28,18 @@
 // change pinouts if not defined through native board LORA_* definitions
 #ifndef LORA_RST
 #pragma message("LoRa pin definitions are not found, redefining...")
-#define LORA_RST              26
-#define LORA_IRQ              12
+#define LORA_RST              23    
+#define LORA_IRQ              33
 #endif
 
 // LoRa pinouts
-#define CFG_LORA_PIN_SS       SS
-#define CFG_LORA_PIN_RST      LORA_RST
-#define CFG_LORA_PIN_A        LORA_IRQ    // (sx127x - dio0, sx126x/sx128x - dio1)
+#define CFG_LORA_PIN_SS       18
+#define CFG_LORA_PIN_RST      23
+#define CFG_LORA_PIN_A        33             // (sx127x - dio0, sx126x/sx128x - dio1)
 #ifdef USE_SX126X
-#define CFG_LORA_PIN_B        14          // (sx127x - dio1, sx126x/sx128x - busy)
-#define CFG_LORA_PIN_RXEN     RADIOLIB_NC // (sx127x - unused, sx126x - RXEN pin number)
-#define CFG_LORA_PIN_TXEN     RADIOLIB_NC // (sx127x - unused, sx126x - TXEN pin number)
+#define CFG_LORA_PIN_B        32                   // (sx127x - dio1, sx126x/sx128x - busy)
+#define CFG_LORA_PIN_RXEN     RADIOLIB_NC          // (sx127x - unused, sx126x - RXEN pin number)
+#define CFG_LORA_PIN_TXEN     RADIOLIB_NC          // (sx127x - unused, sx126x - TXEN pin number)
 #else
 #define CFG_LORA_PIN_B        RADIOLIB_NC
 #define CFG_LORA_PIN_RXEN     RADIOLIB_NC
@@ -70,8 +70,8 @@
 #define CFG_LORA_PWR          20          // output power in dBm
 
 // LoRa protocol default parameters (they need to match between devices!!!)
-#define CFG_LORA_BW           125e3       // bandwidth (from 7.8 kHz up to 500 kHz)
-#define CFG_LORA_SF           12          // spreading factor (6 - 12), 6 requires implicit header mode
+#define CFG_LORA_BW           500e3       // bandwidth (from 7.8 kHz up to 500 kHz)
+#define CFG_LORA_SF           7          // spreading factor (6 - 12), 6 requires implicit header mode
 #define CFG_LORA_CR           7           // coding rate (5 - 8)
 #define CFG_LORA_CRC          1           // 0 - disabled, 1 - 1 byte, 2 - 2 bytes
 #define CFG_LORA_EXPLICIT     true        // header mode, true - explicit, false - implicit
